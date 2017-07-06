@@ -9,7 +9,7 @@ ciclo.after('post', sendErrorsOrNext).after('put', sendErrorsOrNext)
 function sendErrorsOrNext(req, res, next){
     const bundle = res.locals.bundle
 
-    if(bundles.erros){
+    if(bundle.erros){
         var errors = parseErrors(bundle.erros)
         res.status(500).json({errors})
     }else{
